@@ -1,0 +1,15 @@
+<!-- templates/representative_registration.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+  Representative Registration
+{% endblock %}
+
+{% block content %}
+  <h1>Update Resolved At Date</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+  </form>
+{% endblock %}

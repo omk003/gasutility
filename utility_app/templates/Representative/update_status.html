@@ -1,0 +1,16 @@
+<!-- templates/representative_registration.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+  Representative Registration
+{% endblock %}
+
+{% block content %}
+  <h1>Update Service Request Status</h1>
+  <p>Service Request: {{ service_request }}</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Status</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!-- templates/login.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+  User Profile
+{% endblock %}
+
+{% block content %}
+  <h1>User Profile</h1>
+  <p>
+    <strong>Username:</strong> {{ user_profile.username }}
+  </p>
+  <p>
+    <strong>Email:</strong> {{ user_profile.email }}
+  </p>
+  <!-- Button to redirect to user service requests -->
+  <a href="{% url 'view_user_service_requests' %}" class="btn btn-primary">View Your Service Requests</a>
+  <br>
+  <br>
+  <a href="{% url 'create_service_request' %}" class="btn btn-primary">Create Service Request</a>
+{% endblock %}

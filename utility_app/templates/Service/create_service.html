@@ -1,0 +1,20 @@
+<!-- templates/login.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+  Create Service Request
+{% endblock %}
+
+{% block content %}
+  <h1>Create Service Request</h1>
+  {% if success_message %}
+    <div class="alert alert-success" role="alert">
+      {{ success_message }}
+    </div>
+  {% endif %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

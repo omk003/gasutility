@@ -1,0 +1,30 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% block title %}
+        Gas Utility
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    <header>
+      {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit">Logout</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'customer_registration' %}">Register as Customer</a>
+        <a href="{% url 'representative_registration' %}">Register as Representative</a>
+      {% endif %}
+    </header>
+    {% block content %}
+
+    {% endblock %}
+  </body>
+</html>

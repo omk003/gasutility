@@ -1,0 +1,47 @@
+<!-- templates/login.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+  Create Service Request
+{% endblock %}
+
+{% block content %}
+  <h1>Current Service Requests</h1>
+    <ul>
+        {% for request in service_requests %}
+            <li style="margin: 20px;">
+                <strong>Request Type:</strong> {{ request.request_type }}<br>
+                <strong>Status:</strong> {{ request.status }}<br>
+                <strong>Submitted At:</strong> {{ request.submitted_at }}<br>
+                <strong>Details:</strong> {{ request.details }}<br>
+                <strong>Resolved At:</strong> {{ request.resolved_at }}<br>
+
+                {% if request.status != 'closed' %}
+                    <form method="post" action="{% url 'update_resolved_at' request.id %}">
+                        {% csrf_token %}
+                        <label for="resolved_at">Resolved At:</label>
+                        <input type="datetime-local" id="resolved_at" name="resolved_at" value="{{ request.resolved_at|date:'Y-m-d\TH:i' }}">
+                        <button type="submit">Update Resolved At</button>
+                    </form>
+                {% endif %}
+
+
+                {% if request.status != 'closed' %}
+                    <form method="post" action="{% url 'update_service_request' request.id %}">
+                        {% csrf_token %}
+                        <label for="status">Change Status:</label>
+                        <select id="status" name="status">
+                            <option value="pending" {% if request.status == 'pending' %} selected {% endif %}>Pending</option>
+                            <option value="in_progress" {% if request.status == 'in_progress' %} selected {% endif %}>In Progress</option>
+                            <option value="resolved" {% if request.status == 'resolved' %} selected {% endif %}>Resolved</option>
+                            <option value="closed" {% if request.status == 'closed' %} selected {% endif %}>Closed</option>
+                        </select>
+                        <button type="submit">Update Status</button>
+                    </form>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No current service requests found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
