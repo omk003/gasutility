@@ -37,7 +37,7 @@ def login_view(request):
         if user.role == 'CU':
             return redirect('view_profile')
         elif user.role == 'RE':
-            return redirect('representative_dashboard')
+            return redirect('view_all_service_requests')
         
     if request.method == 'POST':
         form = CustomLoginForm(data=request.POST)
@@ -51,7 +51,7 @@ def login_view(request):
                 if user.role == 'CU':
                     return redirect('view_profile')
                 elif user.role == 'RE':
-                    return redirect('representative_dashboard')
+                    return redirect('view_all_service_requests')
     else:
         form = CustomLoginForm()
     return render(request, 'login.html', {'form': form})
@@ -67,11 +67,6 @@ def user_profile(request):
     user_profile = request.user
     return render(request, 'Customer/user_profile.html', {'user_profile': user_profile})
 
-@login_required
-def re_profile(request):
-    # Fetch the profile information of the logged-in user
-    user_profile = request.user
-    return render(request, 'Representative/dashboard.html', {'user_profile': user_profile})
 
 # Service Request Views
 @login_required
@@ -122,7 +117,7 @@ def update_service_request(request, request_id):
         
         if form.is_valid():
             form.save()
-            return redirect('representative_dashboard')
+            return redirect('view_all_service_requests')
 
 @login_required
 def update_resolved_at(request, request_id):
@@ -135,4 +130,4 @@ def update_resolved_at(request, request_id):
         if form.is_valid():
             request_object.resolved_at = form.cleaned_data['resolved_at']
             request_object.save()
-            return redirect('representative_dashboard')
+            return redirect('view_all_service_requests')

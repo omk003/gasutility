@@ -8,7 +8,6 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('profile/', views.user_profile, name='view_profile'),
-    path('reprofile/', views.re_profile, name= 'representative_dashboard'),
 
     # Service Requests
     path('create-service-request/', views.create_service_request, name='create_service_request'),
