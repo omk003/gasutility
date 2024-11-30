@@ -1,4 +1,4 @@
-# GasTrackPro
+# Gas Utility
 
 This Django application offers customer service functionalities for a gas utility company.
 It enables customers to submit service requests, monitor their status, and manage their account information. 
