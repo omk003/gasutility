@@ -2,7 +2,16 @@
 
 This Django application offers customer service functionalities for a gas utility company.
 It enables customers to submit service requests, monitor their status, and manage their account information. 
-Furthermore, representatives can manage service requests and provide support to customers.
+
+1. Login  ![WhatsApp Image 2024-11-30 at 22 14 08_9624bb35](https://github.com/user-attachments/assets/d10c7982-2a4d-4d2a-ba25-532a1e29879f)
+2. User profile ![WhatsApp Image 2024-11-30 at 22 15 15_0c9c4b24](https://github.com/user-attachments/assets/3d59bbc5-744e-4347-876b-fac69d632c90)
+3. Creating service request ![WhatsApp Image 2024-11-30 at 22 15 50_d5a73ae6](https://github.com/user-attachments/assets/ca3e0270-ea82-4e33-92d8-a9ccf7028af9)
+4. User view ![WhatsApp Image 2024-11-30 at 22 15 30_2ed6704b](https://github.com/user-attachments/assets/fdebdfc3-6870-4341-a768-69be45e30518)
+5. Representative view ![WhatsApp Image 2024-11-30 at 22 13 48_4c60dffe](https://github.com/user-attachments/assets/dcac9c52-f4d5-45e1-9a4a-875b57719b4d)
+
+
+
+
 
 ## Endpoints
 
